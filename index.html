@@ -1,0 +1,125 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>CJKwrap by fgallaire</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-dark.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/main.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+
+      <header>
+        <h1>CJKwrap</h1>
+        <p>CJKwrap is a library for wrapping and filling CJK text. Fix Python issue24665.</p>
+      </header>
+
+      <div id="banner">
+        <span id="logo"></span>
+
+        <a href="https://github.com/fgallaire/cjkwrap" class="button fork"><strong>View On GitHub</strong></a>
+        <div class="downloads">
+          <span>Downloads:</span>
+          <ul>
+            <li><a href="https://github.com/fgallaire/cjkwrap/zipball/master" class="button">ZIP</a></li>
+            <li><a href="https://github.com/fgallaire/cjkwrap/tarball/master" class="button">TAR</a></li>
+          </ul>
+        </div>
+      </div><!-- end banner -->
+
+    <div class="wrapper">
+      <nav>
+        <ul></ul>
+      </nav>
+      <section>
+        <h1>
+<a id="cjkwrap" class="anchor" href="#cjkwrap" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>CJKwrap</h1>
+
+<p><strong>CJKwrap</strong> is a library for wrapping and filling CJK text.</p>
+
+<p>CJKwrap fix the issue24665 because Python2 will stay broken forever:
+<a href="https://bugs.python.org/issue24665">https://bugs.python.org/issue24665</a>.</p>
+
+<p>CJKwrap suppport Python 2 (2.6 and above).</p>
+
+<p>CJKwrap is developed by Florent Gallaire <a href="mailto:fgallaire@gmail.com">fgallaire@gmail.com</a>.</p>
+
+<h2>
+<a id="download-and-install" class="anchor" href="#download-and-install" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Download and Install</h2>
+
+<p>To install the last stable version from PyPI::</p>
+
+<pre><code>$ sudo pip install cjkwrap
+</code></pre>
+
+<p>To install the development version from GitHub::</p>
+
+<pre><code>$ git clone https://github.com/fgallaire/cjkwrap
+$ cd cjkwrap
+$ sudo python setup.py install
+</code></pre>
+
+<p>Or you can just use the <code>cjkwrap.py</code> file alone, nothing more needed!</p>
+
+<h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h2>
+
+<p><code>cjklen()</code> and <code>cjkslices()</code> to replace built-in <code>len()</code> and slicing::</p>
+
+<pre><code>&gt;&gt;&gt; import cjkwrap
+&gt;&gt;&gt; cjkwrap.cjklen(u"最終的には良い長さ")
+18
+&gt;&gt;&gt; head, tail = cjkwrap.cjkslices(u"最終的には良い長さ",6)
+&gt;&gt;&gt; print head
+最終的
+&gt;&gt;&gt; print tail
+には良い長さ
+</code></pre>
+
+<p><code>wrap()</code> and <code>fill()</code> to replace the ones from the Python standard library::</p>
+
+<pre><code>&gt;&gt;&gt; wrapped_cjk = cjkwrap.wrap(u"最終的に良いラッピング", 10)
+&gt;&gt;&gt; for line in wrapped_cjk: print line
+... 
+最終的に良
+いラッピン
+グ
+&gt;&gt;&gt; print cjkwrap.fill(u"最終的に良いラッピング", 10)
+最終的に良
+いラッピン
+グ
+</code></pre>
+
+<p>Mixed content is allowed::</p>
+
+<pre><code>&gt;&gt;&gt; cjkwrap.cjklen(u"CJK 最終的には良い長さ")
+22
+&gt;&gt;&gt; print cjkwrap.fill(u"CJK 最終的には良い長さ", 10)
+CJK 最終的
+には良い長
+さ
+</code></pre>
+
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>License</h2>
+
+<p>CJKwrap files are released under the GNU LGPLv3 or above license.</p>
+
+<p>CJKwrap codebase from textwrap by Greg Ward (<a href="mailto:gward@python.net">gward@python.net</a>) under the Python license.</p>
+      </section>
+      <footer>
+        <p>Project maintained by <a href="https://github.com/fgallaire">fgallaire</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
