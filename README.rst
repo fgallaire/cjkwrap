@@ -35,7 +35,7 @@ Usage
     >>> import cjkwrap
     >>> cjkwrap.cjklen(u"最終的には良い長さ")
     18
-    >>> head, tail = cjkwrap.cjkslices(u"最終的には良い長さ",6)
+    >>> head, tail = cjkwrap.cjkslices(u"最終的には良い長さ", 6)
     >>> print head
     最終的
     >>> print tail
