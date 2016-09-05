@@ -41,6 +41,16 @@ Usage
     >>> print tail
     には良い長さ
 
+As ``cjklen()`` uses ``len()`` for non unicode stuff, you can safely do this::
+
+    >>> from cjkwrap import cjklen as len
+    >>> len(u"最終的には良い長さ")
+    18
+    >>> len('ascii string')
+    12
+    >>> len([1, 2, 3, 4])
+    4
+
 ``wrap()`` and ``fill()`` to replace the ones from the Python standard library::
 
     >>> wrapped_cjk = cjkwrap.wrap(u"最終的に良いラッピング", 10)

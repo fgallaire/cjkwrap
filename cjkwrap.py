@@ -30,13 +30,12 @@ import unicodedata
 
 
 def cjklen(text):
-    """cjklen(unicode) -> integer
-    cjklen(str) -> integer
+    """cjklen(object) -> integer
     
     Return the real width of a text.
     Fullwidth and Wide CJK chars are double-width.
     """
-    if isinstance(text, str):
+    if not isinstance(text, unicode):
         return len(text)
     l = 0
     for char in text:
@@ -48,12 +47,11 @@ def cjklen(text):
 
 
 def cjkslices(text, index):
-    """cjkslices(unicode, integer) -> unicode, unicode
-    cjkslices(str, integer) -> str, str
+    """cjkslices(object, integer) -> object, object
     
     Return the two slices of a text cut to the index.
     """
-    if isinstance(text, str):
+    if not isinstance(text, unicode):
         return text[:index], text[index:]
     if cjklen(text) <= index:
         return text, u''
