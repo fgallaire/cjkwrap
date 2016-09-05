@@ -34,7 +34,7 @@ def cjklen(text):
     cjklen(str) -> integer
     
     Return the real width of a text.
-    CJK chars are double-width.
+    Fullwidth and Wide CJK chars are double-width.
     """
     if isinstance(text, str):
         return len(text)
