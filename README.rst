@@ -3,10 +3,10 @@ CJKwrap
 
 **CJKwrap** is a library for wrapping and filling CJK text.
 
-CJKwrap fix the issue24665 because Python2 will stay broken forever:
+CJKwrap fix the issue24665 because Python 2 will stay broken forever:
 https://bugs.python.org/issue24665.
 
-CJKwrap support Python 2 (2.6 and above).
+CJKwrap support **both** Python 2 (2.6 and above) and Python 3 (3.3 and above).
 
 CJKwrap is developed by Florent Gallaire fgallaire@gmail.com.
 
