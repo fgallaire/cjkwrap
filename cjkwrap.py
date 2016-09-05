@@ -27,6 +27,14 @@ __version__ = '1.0'
 
 import textwrap
 import unicodedata
+import sys
+
+PY3 = sys.version[0] == '3'
+
+if PY3:
+    text_type = str
+else:
+    text_type = unicode
 
 
 def cjklen(text):
@@ -35,7 +43,7 @@ def cjklen(text):
     Return the real width of a text.
     Fullwidth and Wide CJK chars are double-width.
     """
-    if not isinstance(text, unicode):
+    if not isinstance(text, text_type):
         return len(text)
     l = 0
     for char in text:
@@ -51,7 +59,7 @@ def cjkslices(text, index):
     
     Return the two slices of a text cut to the index.
     """
-    if not isinstance(text, unicode):
+    if not isinstance(text, text_type):
         return text[:index], text[index:]
     if cjklen(text) <= index:
         return text, u''
