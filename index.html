@@ -47,19 +47,19 @@
 <p>CJKwrap fix the issue24665 because Python2 will stay broken forever:
 <a href="https://bugs.python.org/issue24665">https://bugs.python.org/issue24665</a>.</p>
 
-<p>CJKwrap suppport Python 2 (2.6 and above).</p>
+<p>CJKwrap support Python 2 (2.6 and above).</p>
 
 <p>CJKwrap is developed by Florent Gallaire <a href="mailto:fgallaire@gmail.com">fgallaire@gmail.com</a>.</p>
 
 <h2>
 <a id="download-and-install" class="anchor" href="#download-and-install" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Download and Install</h2>
 
-<p>To install the last stable version from PyPI::</p>
+<p>To install the last stable version from PyPI:</p>
 
 <pre><code>$ sudo pip install cjkwrap
 </code></pre>
 
-<p>To install the development version from GitHub::</p>
+<p>To install the development version from GitHub:</p>
 
 <pre><code>$ git clone https://github.com/fgallaire/cjkwrap
 $ cd cjkwrap
@@ -71,7 +71,7 @@ $ sudo python setup.py install
 <h2>
 <a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h2>
 
-<p><code>cjklen()</code> and <code>cjkslices()</code> to replace built-in <code>len()</code> and slicing::</p>
+<p><code>cjklen()</code> and <code>cjkslices()</code> to replace built-in <code>len()</code> and slicing:</p>
 
 <pre><code>&gt;&gt;&gt; import cjkwrap
 &gt;&gt;&gt; cjkwrap.cjklen(u"最終的には良い長さ")
@@ -83,7 +83,7 @@ $ sudo python setup.py install
 には良い長さ
 </code></pre>
 
-<p><code>wrap()</code> and <code>fill()</code> to replace the ones from the Python standard library::</p>
+<p><code>wrap()</code> and <code>fill()</code> to replace the ones from the Python standard library:</p>
 
 <pre><code>&gt;&gt;&gt; wrapped_cjk = cjkwrap.wrap(u"最終的に良いラッピング", 10)
 &gt;&gt;&gt; for line in wrapped_cjk: print line
@@ -97,7 +97,7 @@ $ sudo python setup.py install
 グ
 </code></pre>
 
-<p>Mixed content is allowed::</p>
+<p>Mixed content is allowed:</p>
 
 <pre><code>&gt;&gt;&gt; cjkwrap.cjklen(u"CJK 最終的には良い長さ")
 22
