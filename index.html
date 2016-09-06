@@ -44,10 +44,10 @@
 
 <p><strong>CJKwrap</strong> is a library for wrapping and filling CJK text.</p>
 
-<p>CJKwrap fix the issue24665 because Python2 will stay broken forever:
+<p>CJKwrap fix the issue24665 because Python 2 will stay broken forever:
 <a href="https://bugs.python.org/issue24665">https://bugs.python.org/issue24665</a>.</p>
 
-<p>CJKwrap support Python 2 (2.6 and above).</p>
+<p>CJKwrap support <strong>both</strong> Python 2 (2.6 and above) and Python 3 (3.3 and above).</p>
 
 <p>CJKwrap is developed by Florent Gallaire <a href="mailto:fgallaire@gmail.com">fgallaire@gmail.com</a>.</p>
 
@@ -81,6 +81,17 @@ $ sudo python setup.py install
 最終的
 &gt;&gt;&gt; print tail
 には良い長さ
+</code></pre>
+
+<p>As <code>cjklen()</code> uses <code>len()</code> for non unicode stuff, you can safely do this:</p>
+
+<pre><code>&gt;&gt;&gt; from cjkwrap import cjklen as len
+&gt;&gt;&gt; len(u"最終的には良い長さ")
+18
+&gt;&gt;&gt; len('ascii string')
+12
+&gt;&gt;&gt; len([1, 2, 3, 4])
+4
 </code></pre>
 
 <p><code>wrap()</code> and <code>fill()</code> to replace the ones from the Python standard library:</p>
