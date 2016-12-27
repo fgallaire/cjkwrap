@@ -30,15 +30,19 @@ Or you can just use the ``cjkwrap.py`` file alone, nothing more needed!
 Usage
 -----
 
-``cjklen()`` and ``cjkslices()`` to replace built-in ``len()`` and slicing::
+``is_wide()`` to know if a char is double-width, ``cjklen()`` and ``cjkslices()`` to replace built-in ``len()`` and slicing::
 
     >>> import cjkwrap
+    >>> cjkwrap.is_wide(u"c")
+    False
+    >>> cjkwrap.is_wide(u"長")
+    True
     >>> cjkwrap.cjklen(u"最終的には良い長さ")
     18
     >>> head, tail = cjkwrap.cjkslices(u"最終的には良い長さ", 6)
-    >>> print head
+    >>> print(head)
     最終的
-    >>> print tail
+    >>> print(tail)
     には良い長さ
 
 As ``cjklen()`` uses ``len()`` for non unicode stuff, you can safely do this::
@@ -46,20 +50,18 @@ As ``cjklen()`` uses ``len()`` for non unicode stuff, you can safely do this::
     >>> from cjkwrap import cjklen as len
     >>> len(u"最終的には良い長さ")
     18
-    >>> len('ascii string')
-    12
     >>> len([1, 2, 3, 4])
     4
 
 ``wrap()`` and ``fill()`` to replace the ones from the Python standard library::
 
     >>> wrapped_cjk = cjkwrap.wrap(u"最終的に良いラッピング", 10)
-    >>> for line in wrapped_cjk: print line
+    >>> for line in wrapped_cjk: print(line)
     ... 
     最終的に良
     いラッピン
     グ
-    >>> print cjkwrap.fill(u"最終的に良いラッピング", 10)
+    >>> print(cjkwrap.fill(u"最終的に良いラッピング", 10))
     最終的に良
     いラッピン
     グ
@@ -68,7 +70,7 @@ Mixed content is allowed::
 
     >>> cjkwrap.cjklen(u"CJK 最終的には良い長さ")
     22
-    >>> print cjkwrap.fill(u"CJK 最終的には良い長さ", 10)
+    >>> print(cjkwrap.fill(u"CJK 最終的には良い長さ", 10))
     CJK 最終的
     には良い長
     さ
