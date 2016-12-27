@@ -37,17 +37,25 @@ else:
     text_type = unicode
 
 
+def is_wide(char):
+    """is_wide(unicode_char) -> boolean
+
+    Return True if unicode_char is Fullwidth or Wide, False otherwise.
+    Fullwidth and Wide CJK chars are double-width.
+    """
+    return True if unicodedata.east_asian_width(char) in ('F', 'W') else False
+
+
 def cjklen(text):
     """cjklen(object) -> integer
     
-    Return the real width of a text.
-    Fullwidth and Wide CJK chars are double-width.
+    Return the real width of an unicode text, the len of any other type.
     """
     if not isinstance(text, text_type):
         return len(text)
     l = 0
     for char in text:
-        if unicodedata.east_asian_width(char) in ('F', 'W'):
+        if is_wide(char):
             l = l + 2
         else:
             l = l + 1
