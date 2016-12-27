@@ -80,15 +80,19 @@ $ sudo python setup.py install
 <h2>
 <a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h2>
 
-<p><code>cjklen()</code> and <code>cjkslices()</code> to replace built-in <code>len()</code> and slicing:</p>
+<p><code>is_wide()</code> to know if a char is double-width, <code>cjklen()</code> and <code>cjkslices()</code> to replace built-in <code>len()</code> and slicing:</p>
 
 <pre><code>&gt;&gt;&gt; import cjkwrap
+&gt;&gt;&gt; cjkwrap.is_wide(u"c")
+False
+&gt;&gt;&gt; cjkwrap.is_wide(u"長")
+True
 &gt;&gt;&gt; cjkwrap.cjklen(u"最終的には良い長さ")
 18
 &gt;&gt;&gt; head, tail = cjkwrap.cjkslices(u"最終的には良い長さ", 6)
-&gt;&gt;&gt; print head
+&gt;&gt;&gt; print(head)
 最終的
-&gt;&gt;&gt; print tail
+&gt;&gt;&gt; print(tail)
 には良い長さ
 </code></pre>
 
@@ -97,8 +101,6 @@ $ sudo python setup.py install
 <pre><code>&gt;&gt;&gt; from cjkwrap import cjklen as len
 &gt;&gt;&gt; len(u"最終的には良い長さ")
 18
-&gt;&gt;&gt; len('ascii string')
-12
 &gt;&gt;&gt; len([1, 2, 3, 4])
 4
 </code></pre>
@@ -106,12 +108,12 @@ $ sudo python setup.py install
 <p><code>wrap()</code> and <code>fill()</code> to replace the ones from the Python standard library:</p>
 
 <pre><code>&gt;&gt;&gt; wrapped_cjk = cjkwrap.wrap(u"最終的に良いラッピング", 10)
-&gt;&gt;&gt; for line in wrapped_cjk: print line
+&gt;&gt;&gt; for line in wrapped_cjk: print(line)
 ... 
 最終的に良
 いラッピン
 グ
-&gt;&gt;&gt; print cjkwrap.fill(u"最終的に良いラッピング", 10)
+&gt;&gt;&gt; print(cjkwrap.fill(u"最終的に良いラッピング", 10))
 最終的に良
 いラッピン
 グ
@@ -121,7 +123,7 @@ $ sudo python setup.py install
 
 <pre><code>&gt;&gt;&gt; cjkwrap.cjklen(u"CJK 最終的には良い長さ")
 22
-&gt;&gt;&gt; print cjkwrap.fill(u"CJK 最終的には良い長さ", 10)
+&gt;&gt;&gt; print(cjkwrap.fill(u"CJK 最終的には良い長さ", 10))
 CJK 最終的
 には良い長
 さ
