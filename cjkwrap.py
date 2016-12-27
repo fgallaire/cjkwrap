@@ -23,7 +23,7 @@ You should have received a copy of the GNU Lesser General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
 
-__version__ = '2.1'
+__version__ = '2.2'
 
 import textwrap
 import unicodedata
@@ -43,7 +43,7 @@ def is_wide(char):
     Return True if unicode_char is Fullwidth or Wide, False otherwise.
     Fullwidth and Wide CJK chars are double-width.
     """
-    return True if unicodedata.east_asian_width(char) in ('F', 'W') else False
+    return unicodedata.east_asian_width(char) in ('F', 'W')
 
 
 def cjklen(text):
@@ -53,13 +53,7 @@ def cjklen(text):
     """
     if not isinstance(text, text_type):
         return len(text)
-    l = 0
-    for char in text:
-        if is_wide(char):
-            l = l + 2
-        else:
-            l = l + 1
-    return l
+    return sum(2 if is_wide(char) else 1 for char in text)
 
 
 def cjkslices(text, index):
