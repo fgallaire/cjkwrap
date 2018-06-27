@@ -8,7 +8,7 @@ https://bugs.python.org/issue24665.
 
 CJKwrap support **both** Python 2 (2.6 and above) and Python 3 (3.3 and above).
 
-CJKwrap is developed by Florent Gallaire fgallaire@gmail.com.
+CJKwrap is developed by Florent Gallaire f@gallai.re.
 
 Website: http://fgallaire.github.io/cjkwrap.
 
